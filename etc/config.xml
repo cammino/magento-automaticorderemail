@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Cammino_Automaticorderemail>
+            <version>0.1.0</version>
+        </Cammino_Automaticorderemail>
+    </modules>
+    <global>
+        <models>
+            <asssombrado_emails>
+                <class>Cammino_Automaticorderemail_Model</class>
+            </asssombrado_emails>
+        </models>
+    </global>
+    <frontend>
+        <events>
+            <sales_order_place_before>
+                <observers>
+                    <assombrado_emails_observer>
+                        <type>singleton</type>
+                        <class>Cammino_Automaticorderemail_Model_Observer</class>
+                        <method>sendOrderEmail</method>
+                    </assombrado_emails_observer>
+                </observers>
+            </sales_order_place_before>
+        </events>
+    </frontend>
+</config>
